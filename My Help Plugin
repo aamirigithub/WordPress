@@ -1,0 +1,26 @@
+<?php
+/*
+Plugin Name: My Help Plugin
+Plugin URI: http://example.com
+Description: Displays a help page in the WordPress admin dashboard
+Version: 1.0
+Author: Your Name
+Author URI: http://example.com
+*/
+
+function my_help_page() {
+  // Replace the text below with your help content
+  echo '<div class="wrap"><h1>Help</h1><p>This is your help content.</p></div>';
+}
+
+function my_add_help_page() {
+  add_menu_page(
+    'Help', // Page title
+    'Help', // Menu title
+    'manage_options', // Capability required to access the page
+    'my-help-page', // Page slug
+    'my_help_page' // Function to display the page content
+  );
+}
+
+add_action('admin_menu', 'my_add_help_page');
